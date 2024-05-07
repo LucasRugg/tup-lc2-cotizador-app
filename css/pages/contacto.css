@@ -11,7 +11,7 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
   padding: 15px;
   border-radius: 15px;
-  color: #e2c367;
+  color: rgb(136, 177, 143);
 }
 
 .formulario div {
@@ -37,17 +37,24 @@ textarea {
   justify-content: end;
 }
 button {
-  background-color: #e2c367;
+  background-color: rgb(136, 177, 143);
   color: black;
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 4px;
   cursor: pointer;
 }
+button:hover{
+  background-color: rgb(142, 228, 142);
+}
+
 #reset {
   background-color: grey;
 }
 
+#reset:hover{
+  background-color: rgb(92, 91, 91);
+}
 h2 {
   text-align: center;
   margin-bottom: 15px;
