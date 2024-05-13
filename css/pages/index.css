@@ -1,0 +1,30 @@
+
+.cotizaciones{
+    display: flex;
+}
+
+.container{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 25px;
+    display: block;
+}
+.selector {
+    background-color: #43766C;
+    padding: 20px;
+    margin-top: 10px;
+    display: inline;
+    color: black;
+    border-radius: 10px;
+    font-size: large;
+  }
+
+.cotizacion {
+    width: 300px;
+    display: inline-flex;
+    background-color: #43766C;
+    height: 50px;
+    margin: 10px;
+    justify-content: space-between;
+  }
+  
+

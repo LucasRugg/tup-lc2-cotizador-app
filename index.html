@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dolar Mania</title>
+    <title>Mi Archivo</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/pages/index.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="css/common.css">
-
 </head>
 
 <body class="grid-container">
     <header>
-        <img class="logo" src="/img/logo.png" alt="">
+        <img class="logo" src="img/logo.png" alt="">
         <h1>DOLAR MANIA</h1>
     </header>
 
@@ -21,15 +21,15 @@
     <section class="lateral">
         <nav id="menuLateral">
             <ul>
-                <li class="active"><a href="/index.html">Inicio</a></li>
+                <li class="active"><a href="index.html">Inicio</a></li>
                 <li><a href="/Miarchivo.html">Mi Archivo</a></li>
-                <li><a href="/informes.html">Informes</a></li>
-                <li><a href="/contacto.html">Contactenos</a></li>
+                <li><a href="informes.html">Informes</a></li>
+                <li><a href="contacto.html">Contactenos</a></li>
             </ul>
         </nav>
         <div class="card">
             <div class="perfil">
-                <img src="/img/perfil.jpeg" alt="">
+                <img src="img/perfil.jpeg" alt="">
             </div>
             <div class="contenido">
                 <h2>Ricardo</h2>
@@ -40,33 +40,34 @@
     </section>
     <main>
         <h2>Pizarra de Cotizaciones</h2>
-        <br>
-        <div class="selector">
-            <label for="monedas">Seleccione una moneda:</label>
-            <select name="monedas" id="monedas">
-                <option value="dolarOficial">Dolar Oficial</option>
-                <option value="dolarBlue">Dolar Blue</option>
-                <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
-                <option value="dolarLiqui">Dolar Contado con Liqui (CCL)</option>
-                <option value="dolarTarjeta">Dolar Tarjeta</option>
-                <option value="dolarMayorista">Dolar Mayorista</option>
-                <option value="dolarCripto">Dolar Cripto</option>
-                <option value="euro">Euro</option>
-                <option value="real">Real Brasileño</option>
-                <option value="chileno">Peso Chileno</option>
-                <option value="uruguayo">Pes Uruguayo</option>
 
-            </select>
-            <span class="material-symbols-outlined">
-                filter_alt
-            </span>
-        </div>
+        <section class="cotizaciones">
 
+            <div class="selector">
+                <label for="monedas">Seleccione una moneda:</label>
+                <select name="monedas" id="monedas">
+                    <option value="dolarOficial">Dolar Oficial</option>
+                    <option value="dolarBlue">Dolar Blue</option>
+                    <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
+                    <option value="dolarLiqui">Dolar Contado con Liqui (CCL)</option>
+                    <option value="dolarTarjeta">Dolar Tarjeta</option>
+                    <option value="dolarMayorista">Dolar Mayorista</option>
+                    <option value="dolarCripto">Dolar Cripto</option>
+                    <option value="euro">Euro</option>
+                    <option value="real">Real Brasileño</option>
+                    <option value="chileno">Peso Chileno</option>
+                    <option value="uruguayo">Peso Uruguayo</option>
 
-
-
+                </select>
+                <span class="material-symbols-outlined">
+                    filter_alt
+                </span>
+            </div>
 
 
+            </div>
+
+        </section>
 
 
 
@@ -85,10 +86,10 @@
             <section>
                 <h3>ACCESOS</h3>
                 <ul>
-                    <li><a href="/index.html">Inicio</a></li>
-                    <li><a href="/Miarchivo.html">Mi Archivo</a></li>
-                    <li><a href="/informes.html">Informes</a></li>
-                    <li><a href="/contacto.html">Contactenos</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="Miarchivo.html">Mi Archivo</a></li>
+                    <li><a href="informes.html">Informes</a></li>
+                    <li><a href="contacto.html">Contactenos</a></li>
                 </ul>
             </section>
             <section>

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informes</title>
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/pages/informes.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 </head>
 
 <body class="grid-container">
@@ -35,7 +39,118 @@
 
         </div>
     </section>
-    <main>MAIN</main>
+    <main>
+
+
+        <div class="grilla">
+
+
+            <div class="selector">
+                <label for="monedas">Seleccione una moneda:</label>
+                <select name="monedas" id="monedas">
+                    <option value="dolarOficial">Dolar Oficial</option>
+                    <option value="dolarBlue">Dolar Blue</option>
+                    <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
+                    <option value="dolarLiqui">Dolar Contado con Liqui (CCL)</option>
+                    <option value="dolarTarjeta">Dolar Tarjeta</option>
+                    <option value="dolarMayorista">Dolar Mayorista</option>
+                    <option value="dolarCripto">Dolar Cripto</option>
+                    <option value="euro">Euro</option>
+                    <option value="real">Real Brasileño</option>
+                    <option value="chileno">Peso Chileno</option>
+                    <option value="uruguayo">Peso Uruguayo</option>
+
+                </select>
+                <span class="material-symbols-outlined">
+                    filter_alt
+                </span>
+            </div>
+            <div class="grafico">
+                <h2>aaca va un grafico</h2>
+            </div>
+
+        </div>
+        <div class="compartir">
+            
+            <span class="material-symbols-outlined" id="icono">
+                forward_to_inbox
+            </span>
+            <a href="#"><h4 id="comparte">Compartir informacion.</h4></a>
+                
+        </div>
+        <div class="container">
+          
+
+            <div id="container-title">
+                <div class="title ">MONEDA</div>
+                <div class="title ">FECHA</div>
+                <div class="title ">COMPRA</div>
+                <div class="title ">VENTA</div>
+                <div class="title ">ACCIÓN</div>
+            </div>
+
+            <section id="scroll">
+
+                <div id="container-content">
+                    <div class="moneda">Dólar Blue</div>
+
+                    <scroll-container>
+                        <div class="element"><br>
+                            <div class="fecha">15/04/2024</div>
+                            <div class="compra">$995</div>
+                            <div class="venta">$1015</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+
+                        <div class="element"><br>
+                            <div class="fecha">14/04/2024</div>
+                            <div class="compra">$996.09</div>
+                            <div class="venta">$1000.06</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+
+                        <div class="element"><br>
+                            <div class="fecha">13/04/2024</div>
+                            <div class="compra">$1355.2</div>
+                            <div class="venta">$1419.2</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+
+
+                        <div class="element"><br>
+                            <div class="fecha">12/04/2024</div>
+                            <div class="compra">$1050</div>
+                            <div class="venta">$1086</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+
+                        <div class="element"><br>
+                            <div class="fecha">11/04/2024</div>
+                            <div class="compra">$1000</div>
+                            <div class="venta">$1200</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+
+                </div>
+
+
+        </div>
+        </scroll-container>
+        </section>
+
+
+
+    </main>
     <footer>
         <div class="footer">
             <section>
@@ -66,6 +181,8 @@
             <section>
                 <p><b>Desarrollado por</b></p>
                 <p>Lucas Ruggiero</p>
+                <p>Ramiro Trevisán</p>
+                <p>Juan Martín Masqueda</p>
                 <p>TUP6-2024</p>
             </section>
         </div>

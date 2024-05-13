@@ -3,13 +3,22 @@
     display: flex;
     justify-content: space-around;
 }
+
+.grilla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .container{
     display: grid;
-    background-color: #EBE3D5;
+    background-color: #43766C;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 25px;
-
+  
 }
+
 #scroll{
     overflow: auto;
     height: auto;
@@ -19,15 +28,11 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(100px, 1fr));  
     gap: 8px;
-    background-color: #43766C;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
- 
+    border-radius: 25px;
+       
 }
-
 #container-content{
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 15px;
     background-color:#EBE3D5;
     
     
@@ -40,11 +45,11 @@
 
 }
 
-.element > .moneda,
+.element > .fecha,
 .element > .compra,
 .element > .venta,
 .element > .accion {
-    font-size: smaller;
+    font-size: small;
     border-left: solid black 1px;
     padding-inline-start: 5px; 
     padding-inline-end: 5px;
@@ -58,21 +63,21 @@
     height: 50px;
     color: black;
     background-color: #43766C;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-radius: 15px;
 
 }
 
-.fecha{
+
+.moneda{
     display: grid;
     width: 100%;
-    
-    background-color: #B0A695;
-
+    background-color:#B0A695;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     padding: 5px;
 }
 
-.moneda{
+.fecha{
     display: 1/5;
     border-left: solid black;
 }
@@ -109,3 +114,49 @@ h1{
     text-align: end;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+h4{
+  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a{
+    text-decoration: underline;
+    color: black;
+}
+.selector {
+    background-color: #43766C;
+    padding: 20px;
+    margin-top: 10px;
+    display: inline;
+    color: black;
+    border-radius: 10px;
+    font-size: large;
+  }
+
+
+.grafico{
+    padding: 20px;
+    display: inline;
+    
+}
+
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+
+.compartir{
+    display: flex;
+}
+#icono{
+    font-size: xx-large;
+}
+
+#comparte{
+    padding: 2px;
+    margin-top: 10px;
+ }

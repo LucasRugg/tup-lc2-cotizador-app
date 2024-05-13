@@ -8,10 +8,10 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #43766C;
   padding: 15px;
   border-radius: 15px;
-  color: rgb(136, 177, 143);
+  color: black;
 }
 
 .formulario div {
@@ -37,7 +37,7 @@ textarea {
   justify-content: end;
 }
 button {
-  background-color: rgb(136, 177, 143);
+  background-color: #B0A695;
   color: black;
   padding: 10px 20px;
   border: 1px solid black;
@@ -45,7 +45,7 @@ button {
   cursor: pointer;
 }
 button:hover{
-  background-color: rgb(142, 228, 142);
+  background-color: #365f57;
 }
 
 #reset {
