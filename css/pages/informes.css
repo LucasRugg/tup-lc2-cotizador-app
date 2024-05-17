@@ -160,3 +160,24 @@ a{
     padding: 2px;
     margin-top: 10px;
  }
+
+
+ .chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.chart .grid line {
+    stroke: #ccc;
+    stroke-dasharray: 2;
+}
+.chart .bar {
+    fill: #43766C;
+}
+.chart .axis {
+    stroke: #000;
+    stroke-width: 1;
+}
+.chart .axis text {
+    font-size: 12px;
+}

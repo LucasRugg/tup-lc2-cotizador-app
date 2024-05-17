@@ -66,7 +66,52 @@
                 </span>
             </div>
             <div class="grafico">
-                <h2>aaca va un grafico</h2>
+                <div class="chart">
+                    <svg width="600" height="400" viewBox="0 0 600 400">
+                        <!-- Definición de ejes y líneas de cuadrícula -->
+                        <g class="grid">
+                            <line x1="50" y1="50" x2="50" y2="350"></line>
+                            <line x1="50" y1="350" x2="550" y2="350"></line>
+                            <line x1="50" y1="50" x2="550" y2="50"></line>
+                            <line x1="550" y1="50" x2="550" y2="350"></line>
+                            <line x1="50" y1="150" x2="550" y2="150"></line>
+                            <line x1="50" y1="250" x2="550" y2="250"></line>
+                        </g>
+                
+                        <!-- Definición de los ejes -->
+                        <g class="axis">
+                            <line x1="50" y1="50" x2="50" y2="350"></line>
+                            <line x1="50" y1="350" x2="550" y2="350"></line>
+                        </g>
+                
+                        <!-- Etiquetas de los ejes -->
+                        <g class="axis">
+                            <text x="30" y="55">$1400</text>
+                            <text x="30" y="155">$1050</text>
+                            <text x="30" y="255">$700</text>
+                            <text x="30" y="355">$350</text>
+                            <text x="90" y="370">11/04</text>
+                            <text x="190" y="370">12/04</text>
+                            <text x="290" y="370">13/04</text>
+                            <text x="390" y="370">14/04</text>
+                            <text x="490" y="370">15/04</text>
+                        </g>
+                
+                        <!-- Gráfica de barras -->
+                        <rect class="bar" x="75" y="200" width="50" height="150"></rect> <!-- 11/04 $1000 -->
+                        <rect class="bar" x="175" y="175" width="50" height="175"></rect> <!-- 12/04 $1050 -->
+                        <rect class="bar" x="275" y="50" width="50" height="300"></rect> <!-- 13/04 $1355.2 -->
+                        <rect class="bar" x="375" y="150" width="50" height="200"></rect> <!-- 14/04 $996.09 -->
+                        <rect class="bar" x="475" y="175" width="50" height="175"></rect> <!-- 15/04 $995 -->
+                    </svg>
+                </div>
+                
+                </body>
+                </html>
+                </div>
+                
+                </body>
+                </html>
             </div>
 
         </div>
