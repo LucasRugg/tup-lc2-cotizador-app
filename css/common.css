@@ -2,8 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
 }
 header {
   grid-area: header;
-  background-color: #EBE3D5;
+  background-color: #ebe3d5;
   background-repeat: repeat;
   background-size: contain;
   display: flex;
@@ -38,18 +38,18 @@ header {
 .logo {
   height: 75px;
   width: 120px;
-  background-color: #43766C;
+  background-color: #43766c;
   border-radius: 50%;
   margin-right: 15px;
 }
 header h1 {
-  color: #43766C;
+  color: #43766c;
 
   padding: 10px;
 }
 
 .lateral {
-  background-color: #EBE3D5;
+  background-color: #ebe3d5;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,7 +60,6 @@ header h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
 }
 
 #menuLateral li {
@@ -69,7 +68,7 @@ header h1 {
   margin-bottom: 5px;
   border: 1px solid black;
   border-radius: 30px;
-  background-color: #F3EEEA;
+  background-color: #f3eeea;
   text-align: center;
   & a {
     color: black;
@@ -79,76 +78,71 @@ header h1 {
 }
 
 #menuLateral li:hover {
-  background-color: #43766C;
+  background-color: #43766c;
 }
 
 #menuLateral .active {
   pointer-events: none;
-  background-color: #43766C;
+  background-color: #43766c;
   border: 3px solid black;
 
   & a {
     color: white;
   }
 }
-.card {
+#perfiles {
   display: flex;
   margin-bottom: 20px;
-  background-color:#B0A695;
+  background-color: #b0a695;
   height: 150px;
   border-radius: 15px;
   align-items: center;
   justify-content: space-around;
   padding: 10px;
   box-shadow: 5px 5px 10px rgba(17, 16, 16, 0.7);
+  width: 300px;
 }
 
-.card .perfil img {
+#perfiles .perfil img {
   width: 90px;
   height: 90px;
   border-radius: 50px;
 }
 
-.card .contenido {
-  color: #322C2B;
+#perfiles .contenido {
+  color: #322c2b;
   width: 50%;
 }
 
 footer {
   grid-area: footer;
-  background-color: #EBE3D5;
-  color: #322C2B;
+  background-color: #ebe3d5;
+  color: #322c2b;
   text-align: center;
 }
 .footer {
   display: flex;
   justify-content: space-around;
   text-align: left;
-
 }
 .footer ul li {
   list-style-type: none;
-
 }
 
 .footer ul li a {
-  color: #43766C;
+  color: #43766c;
   text-decoration: none;
-  color: #322C2B;
-
+  color: #322c2b;
 }
 
 main {
   grid-area: main;
-  background-color:#F3EEEA;
+  background-color: #f3eeea;
   text-align: left;
-  
 }
 
-
-
 .selector {
-  background-color: #43766C;
+  background-color: #43766c;
   padding: 10px;
   margin-top: 10px;
   display: inline;
