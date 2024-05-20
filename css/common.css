@@ -21,20 +21,19 @@ body {
   display: grid;
 
   grid-template:
-    "header header" 15%
+    "header header"
     "lateral main" auto
-    "footer footer" 20% /
+    "footer footer" /
     25% auto;
 }
 header {
   grid-area: header;
   background-color: #ebe3d5;
-  background-repeat: repeat;
-  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .logo {
   height: 75px;
   width: 120px;
@@ -42,9 +41,9 @@ header {
   border-radius: 50%;
   margin-right: 15px;
 }
+
 header h1 {
   color: #43766c;
-
   padding: 10px;
 }
 
