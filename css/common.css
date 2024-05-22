@@ -75,6 +75,9 @@ header h1 {
     font-weight: 600;
   }
 }
+#menuLateral li a{
+  display: block;
+}
 
 #menuLateral li:hover {
   background-color: #43766c;
