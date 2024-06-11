@@ -7,6 +7,8 @@
     <title>Mi Archivo</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/index.css">
+    <script src="js/common.js"></script>
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -46,6 +48,7 @@
             <div class="selector">
                 <label for="monedas">Seleccione una moneda:</label>
                 <select name="monedas" id="monedas">
+                    <option value="todas" selected>Mostrar Todas</option>
                     <option value="dolarOficial">Dolar Oficial</option>
                     <option value="dolarBlue">Dolar Blue</option>
                     <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
@@ -64,29 +67,12 @@
                 </span>
             </div>
 
-        </section>
-
-        <div class="container">
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>OFICIAL</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
-                        </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="estrella">
+        </section>      
+           
+            
+            
+                
+            <!--<div class="estrella">
                 <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
                     viewBox="0 0 24 24" width="48px" fill="#e8eaed">
                     <g>
@@ -98,161 +84,210 @@
                             d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
                     </g>
                 </svg>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>BLUE</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
+            </div>  
+            
+            PARTE DE LA ESTRELLA ARRIBA COMENTADA -->
+            <div class="container">
+                <div class="card" id="dolar-oficial">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>OFICIAL</h2>
                         </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card" id="dolar-blue">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>BLUE</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <div class="estrella">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
-                    viewBox="0 0 24 24" width="48px" fill="#43766C ">
-                    <g>
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                        <path
-                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                    </g>
-                </svg>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>TARJETA</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
+                <div class="card" id="dolar-mep">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>MEP</h2>
                         </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <div class="estrella">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
-                    viewBox="0 0 24 24" width="48px" fill="#43766C">
-                    <g>
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                        <path
-                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                    </g>
-                </svg>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>MEP</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
+                <div class="card" id="dolar-ccl">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>CLL</h2>
                         </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="estrella">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
-                    viewBox="0 0 24 24" width="48px" fill="#e8eaed">
-                    <g>
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                        <path
-                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                    </g>
-                </svg>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>CCL</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
-                        </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <div class="estrella">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
-                    viewBox="0 0 24 24" width="48px" fill="#e8eaed">
-                    <g>
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                        <path
-                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                    </g>
-                </svg>
-            </div>
-            <div class="card">
-                <div class="info">
-                    <div class="titulo">
-                        <h2>CRIPTO</h2>
-                    </div>
-                    <div class="precio">
-                        <div class="compra">
-                            <h5>COMPRA</h5><br>
-                            <h2>$1355.2</h2>
+                <div class="card" id="dolar-tarjeta">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>TARJETA</h2>
                         </div>
-                        <div class="venta">
-                            <h5>VENTA</h5><br>
-                            <h2>$1419.2</h2>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="card" id="dolar-mayorista">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>MAYORISTA</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" id="dolar-cripto">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>CRIPTO</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="euro">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>EURO</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="real">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>REAL</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="chileno">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>CHILENO</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" id="uruguayo">
+                    <div class="info">
+                        <div class="titulo">
+                            <h2>URUGUAYO</h2>
+                        </div>
+                        <div class="precio">
+                            <div class="compra">
+                                <h5>COMPRA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                            <div class="venta">
+                                <h5>VENTA</h5><br>
+                                <h2>Cargando...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Añade más tarjetas aquí con el ID correspondiente -->
             </div>
-            <div class="estrella">
-                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="48px"
-                    viewBox="0 0 24 24" width="48px" fill="#e8eaed">
-                    <g>
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                        <path d="M0 0h24v24H0V0z" fill="none" />
-                    </g>
-                    <g>
-                        <path
-                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                    </g>
-                </svg>
-            </div>
+            
         </div>
 
 
