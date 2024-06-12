@@ -53,6 +53,7 @@ header h1 {
   flex-direction: column;
   justify-content: space-between;
   grid-area: lateral;
+  min-height: 80vh;
 }
 
 #menuLateral {
@@ -75,7 +76,7 @@ header h1 {
     font-weight: 600;
   }
 }
-#menuLateral li a{
+#menuLateral li a {
   display: block;
 }
 
@@ -141,6 +142,9 @@ main {
   grid-area: main;
   background-color: #f3eeea;
   text-align: left;
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .selector {

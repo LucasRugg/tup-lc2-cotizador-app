@@ -1,85 +1,77 @@
-
-.cotizaciones{
-    display: flex;
+.cotizaciones {
+  display: flex;
 }
-
 
 .selector {
-    background-color: #43766C;
-    padding: 20px;
-    margin-top: 10px;
-    display: inline;
-    color: black;
-    border-radius: 10px;
-    font-size: large;
-  }
+  background-color: #43766c;
+  padding: 20px;
+  margin-top: 10px;
+  display: inline;
+  color: black;
+  border-radius: 10px;
+  font-size: large;
+}
 
 .cotizacion {
-    width: 300px;
-    display: inline-flex;
-    background-color: #43766C;
-    height: 50px;
-    margin: 10px;
-    justify-content: space-between;
-  }
-  
+  width: 300px;
+  display: inline-flex;
+  background-color: #43766c;
+  height: 50px;
+  margin: 10px;
+  justify-content: space-between;
+}
+
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 25px;
-    height:auto;
-  }
-
-.card{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    padding: 15px;
-    margin: 10px 1%;
-    background-color: #EBE3D5;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    height: 100px;
-
-}
-
-.card .precio{
   display: flex;
-  
-
+  flex-wrap: wrap;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 25px;
+  height: auto;
 }
 
-.card .precio .compra{
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 550px;
+  padding: 15px;
+  margin: 10px 1%;
+  background-color: #ebe3d5;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  height: 100px;
+}
+
+.card .precio {
+  display: flex;
+}
+
+.card .precio .compra {
   margin-right: 40px;
-  
 }
 
 .card .info {
-    display: flex;
-    width: 500px;
-    justify-content: space-between;
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
 }
 
 .card .info .titulo {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .card .info .precio {
-    font-size: 12px;
+  font-size: 12px;
 }
 
- 
-.estrella{
+.estrella {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-
