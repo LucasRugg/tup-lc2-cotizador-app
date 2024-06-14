@@ -33,7 +33,7 @@
   height: auto;
 }
 
-.carta {
+.card{
   display: flex;
   justify-content: space-between;
   align-items: center;
