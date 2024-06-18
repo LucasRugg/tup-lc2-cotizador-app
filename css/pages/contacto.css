@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  background-color: #43766C;
+  background-color: #43766c;
   padding: 15px;
   border-radius: 15px;
   color: black;
@@ -37,14 +37,14 @@ textarea {
   justify-content: end;
 }
 button {
-  background-color: #B0A695;
+  background-color: #b0a695;
   color: black;
   padding: 10px 20px;
   border: 1px solid black;
   border-radius: 4px;
   cursor: pointer;
 }
-button:hover{
+button:hover {
   background-color: #365f57;
 }
 
@@ -52,7 +52,7 @@ button:hover{
   background-color: grey;
 }
 
-#reset:hover{
+#reset:hover {
   background-color: rgb(92, 91, 91);
 }
 h2 {
@@ -83,4 +83,8 @@ h3 {
   & img {
     height: 100px;
   }
+}
+
+#error-mensaje {
+  color: rgb(248, 6, 6);
 }

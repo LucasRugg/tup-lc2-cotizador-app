@@ -7,6 +7,12 @@
     <title>Contacto</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/contacto.css">
+    <script defer src="js/contacto.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('P-_34rO6jw24AAq5U')
+    </script>
 </head>
 
 <body class="grid-container">
@@ -40,25 +46,26 @@
         <h2>Contacto Web Cotizaciones</h2>
         <div class="container">
             <div class="formulario">
-                <form action="">
+                <form id="form" action="">
                     <h3>Formulario de contacto</h3>
                     <div>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre">
+                        <input type="text" name="from_name" id="from_name">
                     </div>
                     <div>
                         <label for="email">Email:</label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email_id" id="email_id">
                     </div>
                     <div>
                         <label for="mensaje">Mensaje:</label>
-                        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </div>
                     <div class="botonera">
-                        <button type="submit">Enviar</button>
+                        <button type="submit" id="button">Enviar</button>
                         <button id="reset" type="reset">Limpiar</button>
                     </div>
                 </form>
+                <p id="error-mensaje"></p>
             </div>
             <div class="info">
                 <p>Si tiene alguna sugerencia o inconveniente por favor complete el siguiente formulario y envienoslo.
