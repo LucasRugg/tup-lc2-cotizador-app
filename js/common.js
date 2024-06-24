@@ -112,10 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
     const estrellas = document.querySelectorAll('.estrella');
 
+    // Load favorite cards from localStorage
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-    favoritos.forEach(id => {
-        const estrella = document.querySelector(`.estrella[data-id="${id}"]`);
+    // Mark the favorites
+    favoritos.forEach(favorito => {
+        const estrella = document.querySelector(`.estrella[data-id="${favorito.id}"]`);
         if (estrella) {
             estrella.classList.add('selected');
         }
@@ -124,23 +126,38 @@ document.addEventListener('DOMContentLoaded', () => {
     estrellas.forEach(estrella => {
         estrella.addEventListener('click', () => {
             const cardId = estrella.getAttribute('data-id');
+            const card = document.getElementById(cardId);
+            const compra = card.querySelector('.compra h2').textContent;
+            const venta = card.querySelector('.venta h2').textContent;
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
+            const year = today.getFullYear();
+
+            const dia = `${day}/${month}/${year}`;
+
+            let index = favoritos.findIndex(fav => fav.id === cardId);
 
             if (estrella.classList.contains('selected')) {
-                // saco de fav
+                // Remove from favorites
                 estrella.classList.remove('selected');
-                const index = favoritos.indexOf(cardId);
                 if (index > -1) {
                     favoritos.splice(index, 1);
                 }
             } else {
-                // agrego a fav
+                // Add to favorites
                 estrella.classList.add('selected');
-                if (!favoritos.includes(cardId)) {
-                    favoritos.push(cardId);
+                if (index === -1) {
+                    favoritos.push({
+                        id: cardId,
+                        dia: dia,
+                        compra: compra,
+                        venta: venta
+                    });
                 }
             }
 
-            // actualizo
+            // Update localStorage
             localStorage.setItem('favoritos', JSON.stringify(favoritos));
         });
     });
