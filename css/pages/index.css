@@ -37,13 +37,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 550px;
+  width: 600px;
   padding: 15px;
   margin: 10px 1%;
   background-color: #ebe3d5;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   height: 100px;
+  position: relative;
+  padding-right: 60px; 
 }
 
 .card .precio {
@@ -70,8 +72,19 @@
   font-size: 12px;
 }
 
+
 .estrella {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.estrella svg {
+  fill: #e8eaed;
+  transition: fill 0.3s;
+}
+
+.estrella.selected svg {
+  fill: #43766c; 
 }
