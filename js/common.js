@@ -1,17 +1,17 @@
 
 // common.js
 const endpoints = {
-    "dolar-oficial": "https://dolarapi.com/v1/dolares/oficial",
-    "dolar-blue": "https://dolarapi.com/v1/dolares/blue",
-    "dolar-mep": "https://dolarapi.com/v1/dolares/bolsa",
-    "dolar-ccl": "https://dolarapi.com/v1/dolares/contadoconliqui",
-    "dolar-tarjeta": "https://dolarapi.com/v1/dolares/tarjeta",
-    "dolar-mayorista": "https://dolarapi.com/v1/dolares/mayorista",
-    "dolar-cripto": "https://dolarapi.com/v1/dolares/cripto",
-    "euro": "https://dolarapi.com/v1/cotizaciones/eur",
-    "real": "https://dolarapi.com/v1/cotizaciones/brl",
-    "chileno": "https://dolarapi.com/v1/cotizaciones/clp",
-    "uruguayo": "https://dolarapi.com/v1/cotizaciones/uyu"
+    "OFICIAL": "https://dolarapi.com/v1/dolares/oficial",
+    "BLUE": "https://dolarapi.com/v1/dolares/blue",
+    "MEP": "https://dolarapi.com/v1/dolares/bolsa",
+    "CCL": "https://dolarapi.com/v1/dolares/contadoconliqui",
+    "TARJETA": "https://dolarapi.com/v1/dolares/tarjeta",
+    "MAYORISTA": "https://dolarapi.com/v1/dolares/mayorista",
+    "CRIPTO": "https://dolarapi.com/v1/dolares/cripto",
+    "EURO": "https://dolarapi.com/v1/cotizaciones/eur",
+    "REAL": "https://dolarapi.com/v1/cotizaciones/brl",
+    "CHILENO": "https://dolarapi.com/v1/cotizaciones/clp",
+    "URUGUAYO": "https://dolarapi.com/v1/cotizaciones/uyu"
 };
 
 async function obtenerCotizacion(url, elementoId) {
@@ -74,17 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
     selector.addEventListener("change", (event) => {
         const selectedValue = event.target.value;
         const idMapping = {
-            dolarOficial: "dolar-oficial",
-            dolarBlue: "dolar-blue",
-            dolarBolsa: "dolar-mep",
-            dolarLiqui: "dolar-ccl",
-            dolarTarjeta: "dolar-tarjeta",
-            dolarMayorista: "dolar-mayorista",
-            dolarCripto: "dolar-cripto",
-            euro: "euro",
-            real: "real",
-            chileno: "chileno",
-            uruguayo: "uruguayo"
+            dolarOficial: "DOLAR OFICIAL",
+            dolarBlue: "DOLAR BLUE",
+            dolarBolsa: "MEP",
+            dolarLiqui: "CCL",
+            dolarTarjeta: "TARJETA",
+            dolarMayorista: "MAYORISTA",
+            dolarCripto: "CRIPTO",
+            EURO: "EURO",
+            REAL: "REAL",
+            CHILENO: "CHILENO",
+            URUGUAYO: "URUGUAYO"
         };
 
         if (selectedValue === "todas") {

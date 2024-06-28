@@ -6,42 +6,99 @@ function generarTabla() {
     const container = document.getElementById('container-content');
     container.innerHTML = '';
 
-    favoritos.forEach((favorito, index) => {
-        const row = document.createElement('div');
-        row.classList.add('element');
-        row.setAttribute('data-id', `favorito-${index}`);
+    // Utilizar un objeto para agrupar los favoritos por fecha
+    const favoritosPorFecha = {};
 
-        const fechaDiv = document.createElement('div');
-        fechaDiv.classList.add('dia');
-        fechaDiv.textContent = favorito.dia;
+    favoritos.forEach(favorito => {
+        const fecha = favorito.dia;
 
-        const monedaDiv = document.createElement('div');
-        monedaDiv.classList.add('id');
-        monedaDiv.textContent = favorito.id;
+        // Si es la primera vez que encontramos esta fecha, inicializar un array vacío
+        if (!favoritosPorFecha[fecha]) {
+            favoritosPorFecha[fecha] = [];
+        }
 
-        const compraDiv = document.createElement('div');
-        compraDiv.classList.add('compra');
-        compraDiv.textContent = `${favorito.compra}`;
-
-        const ventaDiv = document.createElement('div');
-        ventaDiv.classList.add('venta');
-        ventaDiv.textContent = `${favorito.venta}`;
-
-        const accionDiv = document.createElement('div');
-        accionDiv.classList.add('accion');
-        const deleteSpan = document.createElement('span');
-        deleteSpan.classList.add('material-symbols-outlined');
-        deleteSpan.textContent = 'delete';
-        accionDiv.appendChild(deleteSpan);
-
-        row.appendChild(fechaDiv);
-        row.appendChild(monedaDiv);
-        row.appendChild(compraDiv);
-        row.appendChild(ventaDiv);
-        row.appendChild(accionDiv);
-
-        container.appendChild(row);
+        // Agregar el favorito a la lista correspondiente a esta fecha
+        favoritosPorFecha[fecha].push({
+            id: favorito.id,
+            moneda: favorito.moneda,
+            compra: favorito.compra,
+            venta: favorito.venta
+        });
     });
+
+    // Recorrer el objeto favoritosPorFecha y generar las filas de la tabla
+    Object.keys(favoritosPorFecha).forEach((fecha, index) => {
+        const fechaHeader = document.createElement('div');
+        fechaHeader.classList.add('fecha-header');
+        fechaHeader.textContent = fecha;
+
+        container.appendChild(fechaHeader);
+
+        favoritosPorFecha[fecha].forEach(favorito => {
+            const row = document.createElement('div');
+            row.classList.add('element');
+            row.setAttribute('data-id', `favorito-${favorito.id}`);
+
+            const monedaDiv = document.createElement('div');
+            monedaDiv.classList.add('moneda');
+            monedaDiv.textContent = favorito.moneda;
+
+            const idDiv = document.createElement('div');
+            idDiv.classList.add('id');
+            idDiv.textContent = favorito.id;
+
+            const compraDiv = document.createElement('div');
+            compraDiv.classList.add('compra');
+            compraDiv.textContent = `${favorito.compra}`;
+
+            const ventaDiv = document.createElement('div');
+            ventaDiv.classList.add('venta');
+            ventaDiv.textContent = `${favorito.venta}`;
+
+            const accionDiv = document.createElement('div');
+            accionDiv.classList.add('accion');
+            const deleteSpan = document.createElement('span');
+            deleteSpan.classList.add('material-symbols-outlined');
+            deleteSpan.textContent = 'delete';
+
+             // Agregar evento click al botón delete
+            deleteSpan.addEventListener('click', () => {
+                // Eliminar el favorito del localStorage
+                eliminarFavorito(favorito.id);
+                // Eliminar la fila de la tabla HTML
+                container.removeChild(row);
+            });
+
+            accionDiv.appendChild(deleteSpan);
+            
+
+
+
+
+            row.appendChild(monedaDiv);
+            row.appendChild(idDiv); // Aquí se añade el ID debajo de la columna de moneda
+            row.appendChild(compraDiv);
+            row.appendChild(ventaDiv);
+            row.appendChild(accionDiv);
+
+            container.appendChild(row);
+
+            
+        });
+
+    });
+}
+
+// Función para eliminar un favorito del localStorage
+function eliminarFavorito(id) {
+    // Obtener los favoritos actuales del localStorage
+    const favoritosActuales = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+    // Filtrar los favoritos para eliminar el favorito con el ID especificado
+    const nuevosFavoritos = favoritosActuales.filter(favorito => favorito.id !== id);
+
+    // Guardar los nuevos favoritos en el localStorage
+    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
 }
 
 // Llamar a la función para generar la tabla al cargar la página
