@@ -1,4 +1,3 @@
-
 // common.js
 const endpoints = {
     "OFICIAL": "https://dolarapi.com/v1/dolares/oficial",
@@ -107,21 +106,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 // Localstorage de favoritos
 document.addEventListener('DOMContentLoaded', () => {
     const estrellas = document.querySelectorAll('.estrella');
 
-    // Load favorite cards from localStorage
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    // Obtener la fecha actual
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
+    const year = today.getFullYear();
+    const currentDate = `${day}/${month}/${year}`;
 
-    // Mark the favorites
-    favoritos.forEach(favorito => {
-        const estrella = document.querySelector(`.estrella[data-id="${favorito.id}"]`);
-        if (estrella) {
-            estrella.classList.add('selected');
-        }
-    });
+    // Cargar favoritos del localStorage
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) || {};
+
+    // Marcar los favoritos del día actual
+    if (favoritos[currentDate]) {
+        favoritos[currentDate].forEach(favorito => {
+            const estrella = document.querySelector(`.estrella[data-id="${favorito.id}"]`);
+            if (estrella) {
+                estrella.classList.add('selected');
+            }
+        });
+    } else {
+        favoritos[currentDate] = [];
+    }
 
     estrellas.forEach(estrella => {
         estrella.addEventListener('click', () => {
@@ -129,35 +138,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.getElementById(cardId);
             const compra = card.querySelector('.compra h2').textContent;
             const venta = card.querySelector('.venta h2').textContent;
-            const today = new Date();
-            const day = String(today.getDate()).padStart(2, '0');
-            const month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-            const year = today.getFullYear();
 
-            const dia = `${day}/${month}/${year}`;
-
-            let index = favoritos.findIndex(fav => fav.id === cardId);
+            let index = favoritos[currentDate].findIndex(fav => fav.id === cardId);
 
             if (estrella.classList.contains('selected')) {
-                // Remove from favorites
+                // Eliminar de los favoritos
                 estrella.classList.remove('selected');
                 if (index > -1) {
-                    favoritos.splice(index, 1);
+                    favoritos[currentDate].splice(index, 1);
                 }
             } else {
-                // Add to favorites
+                // Agregar a los favoritos
                 estrella.classList.add('selected');
                 if (index === -1) {
-                    favoritos.push({
+                    favoritos[currentDate].push({
                         id: cardId,
-                        dia: dia,
+                        dia: currentDate,
                         compra: compra,
                         venta: venta
                     });
                 }
             }
 
-            // Update localStorage
+            // Actualizar localStorage
             localStorage.setItem('favoritos', JSON.stringify(favoritos));
         });
     });

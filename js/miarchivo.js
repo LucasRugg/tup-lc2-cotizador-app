@@ -1,30 +1,10 @@
-// Datos de cotizaciones favoritas almacenadas en localStorage
-const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-
 // Función para generar dinámicamente el contenido de la tabla
 function generarTabla() {
     const container = document.getElementById('container-content');
     container.innerHTML = '';
 
-    // Utilizar un objeto para agrupar los favoritos por fecha
-    const favoritosPorFecha = {};
-
-    favoritos.forEach(favorito => {
-        const fecha = favorito.dia;
-
-        // Si es la primera vez que encontramos esta fecha, inicializar un array vacío
-        if (!favoritosPorFecha[fecha]) {
-            favoritosPorFecha[fecha] = [];
-        }
-
-        // Agregar el favorito a la lista correspondiente a esta fecha
-        favoritosPorFecha[fecha].push({
-            id: favorito.id,
-            moneda: favorito.moneda,
-            compra: favorito.compra,
-            venta: favorito.venta
-        });
-    });
+    // Obtener los favoritos actuales del localStorage, agrupados por fecha
+    const favoritosPorFecha = JSON.parse(localStorage.getItem('favoritos')) || {};
 
     // Recorrer el objeto favoritosPorFecha y generar las filas de la tabla
     Object.keys(favoritosPorFecha).forEach((fecha, index) => {
@@ -61,19 +41,15 @@ function generarTabla() {
             deleteSpan.classList.add('material-symbols-outlined');
             deleteSpan.textContent = 'delete';
 
-             // Agregar evento click al botón delete
+            // Agregar evento click al botón delete
             deleteSpan.addEventListener('click', () => {
                 // Eliminar el favorito del localStorage
-                eliminarFavorito(favorito.id);
+                eliminarFavorito(fecha, favorito.id);
                 // Eliminar la fila de la tabla HTML
                 container.removeChild(row);
             });
 
             accionDiv.appendChild(deleteSpan);
-            
-
-
-
 
             row.appendChild(monedaDiv);
             row.appendChild(idDiv); // Aquí se añade el ID debajo de la columna de moneda
@@ -82,23 +58,27 @@ function generarTabla() {
             row.appendChild(accionDiv);
 
             container.appendChild(row);
-
-            
         });
-
     });
 }
 
 // Función para eliminar un favorito del localStorage
-function eliminarFavorito(id) {
-    // Obtener los favoritos actuales del localStorage
-    const favoritosActuales = JSON.parse(localStorage.getItem('favoritos')) || [];
+function eliminarFavorito(fecha, id) {
+    // Obtener los favoritos actuales del localStorage, agrupados por fecha
+    const favoritosPorFecha = JSON.parse(localStorage.getItem('favoritos')) || {};
 
-    // Filtrar los favoritos para eliminar el favorito con el ID especificado
-    const nuevosFavoritos = favoritosActuales.filter(favorito => favorito.id !== id);
+    // Filtrar los favoritos para eliminar el favorito con el ID especificado de la fecha dada
+    if (favoritosPorFecha[fecha]) {
+        favoritosPorFecha[fecha] = favoritosPorFecha[fecha].filter(favorito => favorito.id !== id);
 
-    // Guardar los nuevos favoritos en el localStorage
-    localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
+        // Si la fecha ya no tiene favoritos, eliminarla del objeto
+        if (favoritosPorFecha[fecha].length === 0) {
+            delete favoritosPorFecha[fecha];
+        }
+
+        // Guardar los nuevos favoritos en el localStorage
+        localStorage.setItem('favoritos', JSON.stringify(favoritosPorFecha));
+    }
 }
 
 // Llamar a la función para generar la tabla al cargar la página
