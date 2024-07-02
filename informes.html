@@ -9,17 +9,18 @@
     <link rel="stylesheet" href="css/pages/informes.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <script defer src="js/informes.js"></script>
+    <script defer src="js/common.js"></script>
 </head>
+
 
 <body class="grid-container">
     <header>
-        <img class="logo" src="img/logo.png"">
+        <img class="logo" src="img/logo.png">
         <h1>DOLAR MANIA</h1>
     </header>
 
-    </div>
-    <section class=" lateral">
+    <section class="lateral">
         <nav id="menuLateral">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -36,209 +37,185 @@
                 <h2>Ricardo</h2>
                 <p>Me cambio la vida conocerlos. Los mejores</p>
             </div>
-
         </div>
-        </section>
-        <main>
+    </section>
+    <main>
+        <div id="alert-container" class="alert hidden"></div>
 
-
-            <div class="grilla">
-
-
-                <div class="selector">
-                    <label for="monedas">Seleccione una moneda:</label>
-                    <select name="monedas" id="monedas">
-                        <option value="dolarOficial">DOLAR OFICIAL</option>
-                        <option value="dolarBlue">Dolar Blue</option>
-                        <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
-                        <option value="dolarLiqui">Dolar Contado con Liqui (CCL)</option>
-                        <option value="dolarTarjeta">TARJETA</option>
-                        <option value="dolarMayorista">MAYORISTA</option>
-                        <option value="dolarCripto">CRIPTO</option>
-                        <option value="EURO">EURO</option>
-                        <option value="REAL">REAL Brasileño</option>
-                        <option value="CHILENO">Peso CHILENO</option>
-                        <option value="URUGUAYO">Peso URUGUAYO</option>
-
-                    </select>
-                    <span class="material-symbols-outlined">
-                        filter_alt
-                    </span>
+        <div class="grilla">
+            <div class="selector">
+                <label for="monedas">Seleccione una moneda:</label>
+                <select name="monedas" id="monedas">
+                    <option value="dolarOficial">DOLAR OFICIAL</option>
+                    <option value="dolarBlue">Dolar Blue</option>
+                    <option value="dolarBolsa">Dolar Bolsa (MEP)</option>
+                    <option value="dolarLiqui">Dolar Contado con Liqui (CCL)</option>
+                    <option value="dolarTarjeta">TARJETA</option>
+                    <option value="dolarMayorista">MAYORISTA</option>
+                    <option value="dolarCripto">CRIPTO</option>
+                    <option value="EURO">EURO</option>
+                    <option value="REAL">REAL Brasileño</option>
+                    <option value="CHILENO">Peso CHILENO</option>
+                    <option value="URUGUAYO">Peso URUGUAYO</option>
+                </select>
+                <span class="material-symbols-outlined">
+                    filter_alt
+                </span>
+            </div>
+            <div class="grafico">
+                <div class="chart">
+                    <svg width="600" height="400" viewBox="0 0 600 400">
+                        <g class="grid">
+                            <line x1="50" y1="50" x2="50" y2="350"></line>
+                            <line x1="50" y1="350" x2="550" y2="350"></line>
+                            <line x1="50" y1="50" x2="550" y2="50"></line>
+                            <line x1="550" y1="50" x2="550" y2="350"></line>
+                            <line x1="50" y1="150" x2="550" y2="150"></line>
+                            <line x1="50" y1="250" x2="550" y2="250"></line>
+                        </g>
+                        <g class="axis">
+                            <line x1="50" y1="50" x2="50" y2="350"></line>
+                            <line x1="50" y1="350" x2="550" y2="350"></line>
+                        </g>
+                        <g class="axis">
+                            <text x="30" y="55">$1400</text>
+                            <text x="30" y="155">$1050</text>
+                            <text x="30" y="255">$700</text>
+                            <text x="30" y="355">$350</text>
+                            <text x="90" y="370">11/04</text>
+                            <text x="190" y="370">12/04</text>
+                            <text x="290" y="370">13/04</text>
+                            <text x="390" y="370">14/04</text>
+                            <text x="490" y="370">15/04</text>
+                        </g>
+                        <rect class="bar" x="75" y="200" width="50" height="150"></rect> <!-- 11/04 $1000 -->
+                        <rect class="bar" x="175" y="175" width="50" height="175"></rect> <!-- 12/04 $1050 -->
+                        <rect class="bar" x="275" y="50" width="50" height="300"></rect> <!-- 13/04 $1355.2 -->
+                        <rect class="bar" x="375" y="150" width="50" height="200"></rect> <!-- 14/04 $996.09 -->
+                        <rect class="bar" x="475" y="175" width="50" height="175"></rect> <!-- 15/04 $995 -->
+                    </svg>
                 </div>
-                <div class="grafico">
-                    <div class="chart">
-                        <svg width="600" height="400" viewBox="0 0 600 400">
-                            <!-- Definición de ejes y líneas de cuadrícula -->
-                            <g class="grid">
-                                <line x1="50" y1="50" x2="50" y2="350"></line>
-                                <line x1="50" y1="350" x2="550" y2="350"></line>
-                                <line x1="50" y1="50" x2="550" y2="50"></line>
-                                <line x1="550" y1="50" x2="550" y2="350"></line>
-                                <line x1="50" y1="150" x2="550" y2="150"></line>
-                                <line x1="50" y1="250" x2="550" y2="250"></line>
-                            </g>
-
-                            <!-- Definición de los ejes -->
-                            <g class="axis">
-                                <line x1="50" y1="50" x2="50" y2="350"></line>
-                                <line x1="50" y1="350" x2="550" y2="350"></line>
-                            </g>
-
-                            <!-- Etiquetas de los ejes -->
-                            <g class="axis">
-                                <text x="30" y="55">$1400</text>
-                                <text x="30" y="155">$1050</text>
-                                <text x="30" y="255">$700</text>
-                                <text x="30" y="355">$350</text>
-                                <text x="90" y="370">11/04</text>
-                                <text x="190" y="370">12/04</text>
-                                <text x="290" y="370">13/04</text>
-                                <text x="390" y="370">14/04</text>
-                                <text x="490" y="370">15/04</text>
-                            </g>
-
-                            <!-- Gráfica de barras -->
-                            <rect class="bar" x="75" y="200" width="50" height="150"></rect> <!-- 11/04 $1000 -->
-                            <rect class="bar" x="175" y="175" width="50" height="175"></rect> <!-- 12/04 $1050 -->
-                            <rect class="bar" x="275" y="50" width="50" height="300"></rect> <!-- 13/04 $1355.2 -->
-                            <rect class="bar" x="375" y="150" width="50" height="200"></rect> <!-- 14/04 $996.09 -->
-                            <rect class="bar" x="475" y="175" width="50" height="175"></rect> <!-- 15/04 $995 -->
-                        </svg>
-                    </div>
-
-</body>
-
-
-</div>
-
-
-
-
-</div>
-
-</div>
-<div class="compartir">
-
-    <span class="material-symbols-outlined" id="icono">
-        forward_to_inbox
-    </span>
-    <a href="#">
-        <h4 id="comparte">Compartir informacion.</h4>
-    </a>
-
-</div>
-<div class="container">
-
-
-    <div id="container-title">
-        <div class="title ">MONEDA</div>
-        <div class="title ">FECHA</div>
-        <div class="title ">COMPRA</div>
-        <div class="title ">VENTA</div>
-        <div class="title ">ACCIÓN</div>
-    </div>
-
-    <section id="scroll">
-
-        <div id="container-content">
-            <div class="moneda">Dólar Blue</div>
-
-            <scroll-container>
-                <div class="element"><br>
-                    <div class="fecha">15/04/2024</div>
-                    <div class="compra">$995</div>
-                    <div class="venta">$1015</div>
-                    <div class="accion"><span class="material-symbols-outlined">
-                            delete
-                        </span> </div>
-                </div>
-
-                <div class="element"><br>
-                    <div class="fecha">14/04/2024</div>
-                    <div class="compra">$996.09</div>
-                    <div class="venta">$1000.06</div>
-                    <div class="accion"><span class="material-symbols-outlined">
-                            delete
-                        </span> </div>
-                </div>
-
-                <div class="element"><br>
-                    <div class="fecha">13/04/2024</div>
-                    <div class="compra">$1355.2</div>
-                    <div class="venta">$1419.2</div>
-                    <div class="accion"><span class="material-symbols-outlined">
-                            delete
-                        </span> </div>
-                </div>
-
-
-                <div class="element"><br>
-                    <div class="fecha">12/04/2024</div>
-                    <div class="compra">$1050</div>
-                    <div class="venta">$1086</div>
-                    <div class="accion"><span class="material-symbols-outlined">
-                            delete
-                        </span> </div>
-                </div>
-
-                <div class="element"><br>
-                    <div class="fecha">11/04/2024</div>
-                    <div class="compra">$1000</div>
-                    <div class="venta">$1200</div>
-                    <div class="accion"><span class="material-symbols-outlined">
-                            delete
-                        </span> </div>
-                </div>
-
+            </div>
         </div>
 
+        <div class="compartir">
+            <span class="material-symbols-outlined" id="icono">
+                forward_to_inbox
+            </span>
+            <a href="#" id="compartir-link">
+                <h4 id="comparte">Compartir informacion.</h4>
+            </a>
+        </div>
 
-</div>
-</scroll-container>
-</section>
+        <div class="container">
+            <div id="container-title">
+                <div class="title">MONEDA</div>
+                <div class="title">FECHA</div>
+                <div class="title">COMPRA</div>
+                <div class="title">VENTA</div>
+                <div class="title">ACCIÓN</div>
+            </div>
+            <section id="scroll">
+                <div id="container-content">
+                    <div class="moneda">Dólar Blue</div>
+                    <scroll-container>
+                        <div class="element"><br>
+                            <div class="fecha">15/04/2024</div>
+                            <div class="compra">$995</div>
+                            <div class="venta">$1015</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+                        <div class="element"><br>
+                            <div class="fecha">14/04/2024</div>
+                            <div class="compra">$996.09</div>
+                            <div class="venta">$1000.06</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+                        <div class="element"><br>
+                            <div class="fecha">13/04/2024</div>
+                            <div class="compra">$1355.2</div>
+                            <div class="venta">$1419.2</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+                        <div class="element"><br>
+                            <div class="fecha">12/04/2024</div>
+                            <div class="compra">$1050</div>
+                            <div class="venta">$1086</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+                        <div class="element"><br>
+                            <div class="fecha">11/04/2024</div>
+                            <div class="compra">$1000</div>
+                            <div class="venta">$1200</div>
+                            <div class="accion"><span class="material-symbols-outlined">
+                                    delete
+                                </span> </div>
+                        </div>
+                    </scroll-container>
+                </div>
+            </section>
+        </div>
+    </main>
 
-
-
-</main>
-<footer>
-    <div class="footer">
-        <section>
-            <h3>INSTITUCIONAL</h3>
-            <ul>
-                <li><a href="">¿Quienes Somos?</a></li>
-                <li><a href="">Socios Estrategicos</a></li>
-                <li><a href="">Trabaje con Nosotros</a></li>
-                <li><a href="">Ayuda</a></li>
-            </ul>
-        </section>
-        <section>
-            <h3>ACCESOS</h3>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="miarchivo.html">Mi Archivo</a></li>
-                <li><a href="informes.html">Informes</a></li>
-                <li><a href="contacto.html">Contactenos</a></li>
-            </ul>
-        </section>
-        <section>
-            <h3>CONTACTO</h3>
-            <p>Universidad Tecnologica Nacional</p>
-            <p>Zeballos 1341 - S2000BQA</p>
-            <p>Rosario</p>
-            <p>0341-4481871</p>
-        </section>
-        <section>
-            <p><b>Desarrollado por</b></p>
-            <p>Lucas Ruggiero</p>
-            <p>Ramiro Trevisán</p>
-            <p>Juan Martín Masqueda</p>
-            <p>TUP6-2024</p>
-        </section>
+    <div id="compartir" class="bloque">
+        <div class="bloque-content">
+            <span class="close">&times;</span>
+            <form id="compartirFormulario">
+                <h2>Datos del destinatario.</h2>
+                <label for="name">Nombre:</label><br/>
+                <input type="text" id="name" name="name" required><br/>
+                <label for="email">Email:</label><br/>
+                <input type="email" id="email" name="email" required><br/>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </div>
 
-    <p><i>TUP-Catedra de Laboratorio de Computacion 2 - Año 2024</i></p>
-
-</footer>
+    <footer>
+        <div class="footer">
+            <section>
+                <h3>INSTITUCIONAL</h3>
+                <ul>
+                    <li><a href="">¿Quienes Somos?</a></li>
+                    <li><a href="">Socios Estrategicos</a></li>
+                    <li><a href="">Trabaje con Nosotros</a></li>
+                    <li><a href="">Ayuda</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>ACCESOS</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="miarchivo.html">Mi Archivo</a></li>
+                    <li><a href="informes.html">Informes</a></li>
+                    <li><a href="contacto.html">Contactenos</a></li>
+                </ul>
+            </section>
+            <section>
+                <h3>CONTACTO</h3>
+                <p>Universidad Tecnologica Nacional</p>
+                <p>Zeballos 1341 - S2000BQA</p>
+                <p>Rosario</p>
+                <p>0341-4481871</p>
+            </section>
+            <section>
+                <p><b>Desarrollado por</b></p>
+                <p>Lucas Ruggiero</p>
+                <p>Ramiro Trevisán</p>
+                <p>Juan Martín Masqueda</p>
+                <p>TUP6-2024</p>
+            </section>
+        </div>
+        <p><i>TUP-Catedra de Laboratorio de Computacion 2 - Año 2024</i></p>
+    </footer>
 
 </body>
 

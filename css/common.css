@@ -156,3 +156,37 @@ main {
   border-radius: 10px;
   font-size: large;
 }
+
+
+.alert {
+  position: fixed;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  margin: 100px;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  opacity: 0.7;
+  z-index: 1000;
+  display: none;
+  width: 500px;
+  height: 75px;
+}
+
+.alert.success {
+  background-color: #28a745;
+}
+
+.alert.warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.alert.error {
+  background-color: #dc3545;
+}
+
+.hidden {
+  display: none;
+}

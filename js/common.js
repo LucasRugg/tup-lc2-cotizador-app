@@ -1,4 +1,3 @@
-// common.js
 const endpoints = {
     "OFICIAL": "https://dolarapi.com/v1/dolares/oficial",
     "BLUE": "https://dolarapi.com/v1/dolares/blue",
@@ -12,6 +11,22 @@ const endpoints = {
     "CHILENO": "https://dolarapi.com/v1/cotizaciones/clp",
     "URUGUAYO": "https://dolarapi.com/v1/cotizaciones/uyu"
 };
+
+function showAlert(message, type) {
+    const alertContainer = document.getElementById('alert-container');
+    
+    alertContainer.className = 'alert';
+    alertContainer.classList.add(type);
+    alertContainer.textContent = message;
+    alertContainer.style.display = 'block';
+    
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(() => {
+        alertContainer.style.display = 'none';
+    }, 500);
+}
+
+
 
 async function obtenerCotizacion(url, elementoId) {
     try {
@@ -40,6 +55,7 @@ async function obtenerCotizacion(url, elementoId) {
             if (compraElemento && ventaElemento) {
                 compraElemento.textContent = `$${cotizacion.compra}`;
                 ventaElemento.textContent = `$${cotizacion.venta}`;
+                showAlert('Cotización obtenida con éxito', 'success');
             } else {
                 throw new Error(`Elementos de compra/venta no encontrados para ${elementoId}`);
             }
@@ -52,13 +68,13 @@ async function obtenerCotizacion(url, elementoId) {
         if (errorElemento) {
             errorElemento.textContent = 'Error';
         }
+        showAlert('Error al obtener la cotización', 'error');
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const selector = document.getElementById("monedas");
 
-    // Función para mostrar todas las cards y cargar sus cotizaciones
     function mostrarTodasLasCards() {
         document.querySelectorAll('.card').forEach(card => {
             card.style.display = 'block';
@@ -67,14 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Mostrar todas las cards por defecto y cargar sus cotizaciones
     mostrarTodasLasCards();
 
     selector.addEventListener("change", (event) => {
         const selectedValue = event.target.value;
         const idMapping = {
-            dolarOficial: "DOLAR OFICIAL",
-            dolarBlue: "DOLAR BLUE",
+            dolarOficial: "OFICIAL",
+            dolarBlue: "BLUE",
             dolarBolsa: "MEP",
             dolarLiqui: "CCL",
             dolarTarjeta: "TARJETA",
@@ -90,13 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
             mostrarTodasLasCards();
         } else {
             const elementoId = idMapping[selectedValue];
-            
-            // Ocultar todas las cards
+
             document.querySelectorAll('.card').forEach(card => {
                 card.style.display = 'none';
             });
 
-            // Mostrar la card seleccionada
             const selectedCard = document.getElementById(elementoId);
             if (selectedCard) {
                 selectedCard.style.display = 'block';
@@ -106,21 +119,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Localstorage de favoritos
 document.addEventListener('DOMContentLoaded', () => {
     const estrellas = document.querySelectorAll('.estrella');
 
-    // Obtener la fecha actual
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
+    const month = String(today.getMonth() + 1).padStart(2, '0');
     const year = today.getFullYear();
     const currentDate = `${day}/${month}/${year}`;
 
-    // Cargar favoritos del localStorage
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || {};
 
-    // Marcar los favoritos del día actual
     if (favoritos[currentDate]) {
         favoritos[currentDate].forEach(favorito => {
             const estrella = document.querySelector(`.estrella[data-id="${favorito.id}"]`);
@@ -142,13 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let index = favoritos[currentDate].findIndex(fav => fav.id === cardId);
 
             if (estrella.classList.contains('selected')) {
-                // Eliminar de los favoritos
                 estrella.classList.remove('selected');
                 if (index > -1) {
                     favoritos[currentDate].splice(index, 1);
                 }
+                showAlert('Eliminado de favoritos', 'warning');
             } else {
-                // Agregar a los favoritos
                 estrella.classList.add('selected');
                 if (index === -1) {
                     favoritos[currentDate].push({
@@ -158,9 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         venta: venta
                     });
                 }
+                showAlert('Agregado a favoritos', 'success');
             }
 
-            // Actualizar localStorage
             localStorage.setItem('favoritos', JSON.stringify(favoritos));
         });
     });
