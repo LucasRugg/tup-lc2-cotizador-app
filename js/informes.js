@@ -122,6 +122,7 @@ async function obtenerCotizaciones() {
             // Agregar espacios en blanco si falta alguna cotización
             if (!tieneOficial) datosOficial.push('');
             if (!tieneBlue) datosBlue.push('');
+            if (!tieneMEP) datosMEP.push('');
             if (!tieneTarjeta) datosTarjeta.push('');
             if (!tieneCCL) datosCCL.push('');
             if (!tieneTarjeta) datosTarjeta.push('');
