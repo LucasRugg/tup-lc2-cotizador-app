@@ -136,10 +136,11 @@ a{
 .grafico{
     padding: 20px;
     display: inline;
-    
+    width: 500px;
+    height: 500px;
 }
 
-
+/*
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -160,8 +161,8 @@ a{
     padding: 2px;
     margin-top: 10px;
  }
-
-
+*/
+/*
  .chart {
     width: 100%;
     max-width: 600px;
@@ -181,8 +182,8 @@ a{
 .chart .axis text {
     font-size: 12px;
 }
-
-
+*/
+/*
 .hidden {
     display: none;
 }
@@ -233,3 +234,5 @@ input{
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+*/
