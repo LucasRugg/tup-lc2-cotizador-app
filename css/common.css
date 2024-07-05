@@ -93,29 +93,6 @@ header h1 {
     color: white;
   }
 }
-#perfiles {
-  display: flex;
-  margin-bottom: 20px;
-  background-color: #b0a695;
-  height: 150px;
-  border-radius: 15px;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-  box-shadow: 5px 5px 10px rgba(17, 16, 16, 0.7);
-  width: 300px;
-}
-
-#perfiles .perfil img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50px;
-}
-
-#perfiles .contenido {
-  color: #322c2b;
-  width: 50%;
-}
 
 footer {
   grid-area: footer;
@@ -157,7 +134,6 @@ main {
   font-size: large;
 }
 
-
 .alert {
   position: fixed;
   align-items: center;
@@ -189,4 +165,41 @@ main {
 
 .hidden {
   display: none;
+}
+.slider {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider--inner {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: all 0.3s ease-in;
+  width: 100%;
+}
+
+.carta {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #b0a695;
+  height: 150px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(17, 16, 16, 0.7);
+  flex: 0 0 calc(100% - 20px); /* Cambia el ancho para que sea un porcentaje del contenedor, menos el margen */
+  margin-right: 20px; /* Asegura un margen entre las cartas */
+  box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+}
+
+.carta .perfil img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+}
+
+.carta .contenido {
+  color: #322c2b;
+  width: 50%;
 }
