@@ -188,93 +188,87 @@ function getColorForKey(key, opacity = 1) {
 function generarTabla() {
     const container = document.getElementById("container-content");
     container.innerHTML = "";
-
+  
     // Obtener los favoritos actuales del localStorage, agrupados por fecha
     const favoritosPorFecha = JSON.parse(localStorage.getItem("favoritos")) || {};
-
+  
     // Recolectar todos los favoritos en un solo array y agrupar por ID
     let todosLosFavoritos = {};
     Object.keys(favoritosPorFecha).forEach(fecha => {
-        favoritosPorFecha[fecha].forEach(favorito => {
-            if (!todosLosFavoritos[favorito.id]) {
-                todosLosFavoritos[favorito.id] = [];
-            }
-            todosLosFavoritos[favorito.id].push({ ...favorito, fecha });
-        });
+      favoritosPorFecha[fecha].forEach(favorito => {
+        if (!todosLosFavoritos[favorito.id]) {
+          todosLosFavoritos[favorito.id] = [];
+        }
+        todosLosFavoritos[favorito.id].push({ ...favorito, fecha });
+      });
     });
-
+  
     // Generar la tabla por grupos de ID
     Object.keys(todosLosFavoritos).forEach(id => {
-        // Crear un header para cada grupo
-        const idHeader = document.createElement("div");
-        idHeader.classList.add("id-header");
-        idHeader.textContent = id.toUpperCase();
-        container.appendChild(idHeader);
-
-        let previousVenta = null; // Variable para almacenar el valor de venta anterior
-
-        // Crear filas para cada favorito dentro del grupo
-        todosLosFavoritos[id].forEach(favorito => {
-            const row = document.createElement("div");
-            row.classList.add("element");
-            row.setAttribute("data-id", `favorito-${favorito.id}`);
-
-            const monedaDiv = document.createElement("div");
-            monedaDiv.classList.add("moneda");
-            monedaDiv.textContent = favorito.moneda;
-
-            const fechaDiv = document.createElement("div");
-            fechaDiv.classList.add("fecha");
-            fechaDiv.textContent = favorito.fecha;
-
-            const compraDiv = document.createElement("div");
-            compraDiv.classList.add("compra");
-            compraDiv.textContent = `${favorito.compra}`;
-
-            const ventaDiv = document.createElement("div");
-            ventaDiv.classList.add("venta");
-            ventaDiv.textContent = `${favorito.venta}`;
-
-            const accionDiv = document.createElement("div");
-            accionDiv.classList.add("accion");
-            const upSpan = document.createElement("span");
-            upSpan.classList.add("material-symbols-outlined");
-            upSpan.textContent = "keyboard_double_arrow_up";
-
-            const downSpan = document.createElement("span");
-            downSpan.classList.add("material-symbols-outlined");
-            downSpan.textContent = "keyboard_double_arrow_down";
-
-            const equalSpan = document.createElement("span");
-            equalSpan.classList.add("material-symbols-outlined");
-            equalSpan.textContent = "equal"
-
-            if (previousVenta !== null) {
-                if (favorito.venta > previousVenta) {
-                    accionDiv.appendChild(upSpan);
-                } else if (favorito.venta < previousVenta) {
-                    accionDiv.appendChild(downSpan);
-                }  
-            }
-            else {
-                accionDiv.appendChild(equalSpan);
-            }
-
-            // Actualizar el valor de venta anterior
-            previousVenta = favorito.venta;
-
-
-            row.appendChild(monedaDiv);
-            row.appendChild(fechaDiv);
-            row.appendChild(compraDiv);
-            row.appendChild(ventaDiv);
-            row.appendChild(accionDiv);
-
-            container.appendChild(row);
-        });
+      // Crear un header para cada grupo
+      const idHeader = document.createElement("div");
+      idHeader.classList.add("id-header");
+      idHeader.textContent = id.toUpperCase();
+      container.appendChild(idHeader);
+  
+      let previousVenta = null; // Variable para almacenar el valor de venta anterior
+  
+      // Crear filas para cada favorito dentro del grupo
+      todosLosFavoritos[id].forEach(favorito => {
+        const row = document.createElement("div");
+        row.classList.add("element");
+        row.setAttribute("data-id", `favorito-${favorito.id}`);
+  
+        const monedaDiv = document.createElement("div");
+        monedaDiv.classList.add("moneda");
+        monedaDiv.textContent = favorito.moneda;
+  
+        const fechaDiv = document.createElement("div");
+        fechaDiv.classList.add("fecha");
+        fechaDiv.textContent = favorito.fecha;
+  
+        const compraDiv = document.createElement("div");
+        compraDiv.classList.add("compra");
+        compraDiv.textContent = `${favorito.compra}`;
+  
+        const ventaDiv = document.createElement("div");
+        ventaDiv.classList.add("venta");
+        ventaDiv.textContent = `${favorito.venta}`;
+  
+        const accionDiv = document.createElement("div");
+        accionDiv.classList.add("accion");
+        const span = document.createElement("span");
+        span.classList.add("material-symbols-outlined");
+  
+        if (previousVenta !== null) {
+          if (favorito.venta > previousVenta) {
+            span.textContent = "keyboard_double_arrow_up";
+            span.classList.add("up");
+          } else if (favorito.venta < previousVenta) {
+            span.textContent = "keyboard_double_arrow_down";
+            span.classList.add("down");
+          } else {
+            span.textContent = "remove";
+            span.classList.add("equal");
+          }
+        } else {
+          span.textContent = "remove";
+          span.classList.add("equal");
+        }
+  
+        // Actualizar el valor de venta anterior
+        previousVenta = favorito.venta;
+        accionDiv.appendChild(span);
+        row.appendChild(monedaDiv);
+        row.appendChild(fechaDiv);
+        row.appendChild(compraDiv);
+        row.appendChild(ventaDiv);
+        row.appendChild(accionDiv);
+  
+        container.appendChild(row);
+      });
     });
-}
-
+  }
 
 window.onload = async function () {
     const { etiquetas, datos } = await obtenerCotizaciones();

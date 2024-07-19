@@ -85,7 +85,7 @@
   display: 1/5;
   text-align: center;
   border-left: solid black;
-  color: red;
+ 
 }
 
 h2 {
@@ -196,11 +196,6 @@ input {
 .moneda, .fecha, .compra, .venta, .accion {
   flex: 1;
   padding: 0 5px;
-}
-
-/* Estilo para los spans que indican subida o bajada de valor */
-.material-symbols-outlined {
-  cursor: pointer;
 }
 
 /* Estilos de color para los spans */
