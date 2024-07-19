@@ -150,7 +150,7 @@ function printTable() {
   // Esperar a que todo se cargue y luego imprimir
   printWindow.onload = function () {
     printWindow.print();
-    printWindow.close();
+
   };
 }
 

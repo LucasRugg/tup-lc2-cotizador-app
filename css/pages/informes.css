@@ -58,13 +58,10 @@
   border-radius: 15px;
 }
 
-.moneda {
-  display: grid;
-  width: 100%;
-  background-color: #b0a695;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+.moneda{
+  color: #000;
   padding: 5px;
+  background-color: #ebe3d5;
 }
 
 .fecha {
@@ -173,4 +170,48 @@ input {
   height: 30px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+#container-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para el encabezado de ID */
+.id-header {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para cada fila de elemento */
+.element {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Estilo para cada columna dentro de la fila */
+.moneda, .fecha, .compra, .venta, .accion {
+  flex: 1;
+  padding: 0 5px;
+}
+
+/* Estilo para los spans que indican subida o bajada de valor */
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+/* Estilos de color para los spans */
+.material-symbols-outlined.up {
+  color: green;
+}
+
+.material-symbols-outlined.down {
+  color: red;
+}
+
+.material-symbols-outlined.equal {
+  color: gray;
 }
